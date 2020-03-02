@@ -42,7 +42,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <HashRouter>
           <Navbar />
           <div className="container">
             <Switch>
@@ -57,7 +57,7 @@ function App() {
               />
             </Switch>
           </div>
-        </BrowserRouter>
+        </HashRouter>
       </Provider>
     </ThemeProvider>
   );
