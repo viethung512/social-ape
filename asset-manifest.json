@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/social-ape/static/css/main.fc02af1b.chunk.css",
-    "main.js": "/social-ape/static/js/main.df960542.chunk.js",
-    "main.js.map": "/social-ape/static/js/main.df960542.chunk.js.map",
+    "main.js": "/social-ape/static/js/main.b1b19966.chunk.js",
+    "main.js.map": "/social-ape/static/js/main.b1b19966.chunk.js.map",
     "runtime-main.js": "/social-ape/static/js/runtime-main.3bf1f1fc.js",
     "runtime-main.js.map": "/social-ape/static/js/runtime-main.3bf1f1fc.js.map",
     "static/js/2.416363e5.chunk.js": "/social-ape/static/js/2.416363e5.chunk.js",
     "static/js/2.416363e5.chunk.js.map": "/social-ape/static/js/2.416363e5.chunk.js.map",
     "index.html": "/social-ape/index.html",
-    "precache-manifest.d87814207cefefa40a6ad956c5cff8b3.js": "/social-ape/precache-manifest.d87814207cefefa40a6ad956c5cff8b3.js",
+    "precache-manifest.a0d1a271c9bcf71f13bc6804c3cf3dbe.js": "/social-ape/precache-manifest.a0d1a271c9bcf71f13bc6804c3cf3dbe.js",
     "service-worker.js": "/social-ape/service-worker.js",
     "static/css/main.fc02af1b.chunk.css.map": "/social-ape/static/css/main.fc02af1b.chunk.css.map",
     "static/js/2.416363e5.chunk.js.LICENSE.txt": "/social-ape/static/js/2.416363e5.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.3bf1f1fc.js",
     "static/js/2.416363e5.chunk.js",
     "static/css/main.fc02af1b.chunk.css",
-    "static/js/main.df960542.chunk.js"
+    "static/js/main.b1b19966.chunk.js"
   ]
 }
