@@ -49,15 +49,15 @@ const useStyles = makeStyles({
   }
 });
 
-export default function({ screamId, userHandle, openDialog }) {
+export default function ({ screamId, userHandle, openDialog }) {
   const dispatch = useDispatch();
   const data = useSelector(state => state.data);
   const UI = useSelector(state => state.UI);
   let [open, setOpen] = useState(false);
-  let [path, setPath] = useState({
-    oldPath: "",
-    newPath: ""
-  });
+  // let [path, setPath] = useState({
+  //   oldPath: "",
+  //   newPath: ""
+  // });
 
   let { loading } = UI;
   let {
@@ -66,28 +66,28 @@ export default function({ screamId, userHandle, openDialog }) {
   const classes = useStyles();
 
   const handleOpen = () => {
-    window.history.pushState(null, null, path.newPath);
+    // window.history.pushState(null, null, path.newPath);
     setOpen(true);
     dispatch(getScream(screamId));
   };
 
   const handleClose = () => {
-    if (window.location.pathname === `/user/${userHandle}/scream/${screamId}`) {
-      window.history.pushState(null, null, `/user/${userHandle}`);
-    } else {
-      window.history.pushState(null, null, path.oldPath);
-    }
+    // if (window.location.pathname === `/user/${userHandle}/scream/${screamId}`) {
+    //   window.history.pushState(null, null, `/user/${userHandle}`);
+    // } else {
+    //   window.history.pushState(null, null, path.oldPath);
+    // }
 
     dispatch(clearErrors());
     setOpen(false);
   };
 
   useEffect(() => {
-    setPath({
-      ...path,
-      oldPath: window.location.pathname,
-      newPath: `/user/${userHandle}/scream/${screamId}`
-    });
+    // setPath({
+    //   ...path,
+    //   oldPath: window.location.pathname,
+    //   newPath: `/user/${userHandle}/scream/${screamId}`
+    // });
     if (openDialog) {
       handleOpen();
     }
@@ -98,37 +98,37 @@ export default function({ screamId, userHandle, openDialog }) {
       <CircularProgress size={150} thickness={2} />
     </div>
   ) : (
-    <Grid container>
-      <Grid item sm={5}>
-        <img src={userImage} alt="profile" className={classes.profileImage} />
-      </Grid>
-      <Grid item sm={7}>
-        <Typography
-          component={Link}
-          color="primary"
-          variant="h5"
-          to={`/user/${userHandle}`}
-        >
-          @{userHandle}
-        </Typography>
+      <Grid container>
+        <Grid item sm={5}>
+          <img src={userImage} alt="profile" className={classes.profileImage} />
+        </Grid>
+        <Grid item sm={7}>
+          <Typography
+            component={Link}
+            color="primary"
+            variant="h5"
+            to={`/user/${userHandle}`}
+          >
+            @{userHandle}
+          </Typography>
+          <hr className={classes.invisibleSeparator} />
+          <Typography variant="body2" color="textSecondary">
+            {dayjs(createdAt).format("h:mm a, MMMM DD YYYY")}
+          </Typography>
+          <hr className={classes.invisibleSeparator} />
+          <Typography variant="body1">{body}</Typography>
+          <LikeButton screamId={screamId} />
+          <span>{likeCount} Likes</span>
+          <MyButton tip="Comments">
+            <ChatIcon color="primary" />
+          </MyButton>
+          <span>{commentCount} Comments</span>
+        </Grid>
         <hr className={classes.invisibleSeparator} />
-        <Typography variant="body2" color="textSecondary">
-          {dayjs(createdAt).format("h:mm a, MMMM DD YYYY")}
-        </Typography>
-        <hr className={classes.invisibleSeparator} />
-        <Typography variant="body1">{body}</Typography>
-        <LikeButton screamId={screamId} />
-        <span>{likeCount} Likes</span>
-        <MyButton tip="Comments">
-          <ChatIcon color="primary" />
-        </MyButton>
-        <span>{commentCount} Comments</span>
+        <CommentForm screamId={screamId} />
+        <Comments comments={comments} />
       </Grid>
-      <hr className={classes.invisibleSeparator} />
-      <CommentForm screamId={screamId} />
-      <Comments comments={comments} />
-    </Grid>
-  );
+    );
 
   return (
     <Fragment>

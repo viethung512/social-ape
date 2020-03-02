@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, HashRouter } from "react-router-dom";
 import "./App.css";
 import fileTheme from "./util/theme";
 import jwtDecode from "jwt-decode";
@@ -42,7 +42,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Navbar />
           <div className="container">
             <Switch>
